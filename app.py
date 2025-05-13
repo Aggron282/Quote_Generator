@@ -107,7 +107,7 @@ def index():
             ai_price *= 0.90
 
         ai_price = round(max(ai_price, 25), 2)
-
+        print(ai_price,original_price)
         quote_text = generate_quote_text(name, ai_price,job_details, address)
 
         return render_template('quote.html', name=name, quote=quote_text, original_price = original_price, half_price = ai_price /2 , price=ai_price, image=image_path)
