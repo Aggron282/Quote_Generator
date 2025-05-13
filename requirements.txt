@@ -1,0 +1,6 @@
+Flask
+Flask-WTF
+Flask-Uploads
+python-dotenv
+openai
+geopy
