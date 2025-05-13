@@ -5,7 +5,12 @@ from utils.ai_quote import generate_quote_text
 from utils.ai_quote import polish_msg
 import os
 import smtplib
+from dotenv import load_dotenv
+load_dotenv()
 from email.message import EmailMessage
+
+
+PASSWORD = os.getenv("SMTP_PASSWORD");
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads/'
@@ -13,8 +18,7 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB
 
 SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
-EMAIL = "marco@thewindowknight.com"
-PASSWORD = "btdt xwzg umaw xnbp"
+EMAIL = os.getenv("SMTP_EMAIL");
 
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
