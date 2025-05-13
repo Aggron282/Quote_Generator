@@ -2,6 +2,6 @@ Flask
 Flask-WTF
 Flask-Uploads
 python-dotenv
-openai
+openai==0.28
 geopy
 gunicorn==21.2.0
