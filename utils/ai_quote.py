@@ -17,6 +17,39 @@ def generate_quote_text(client_name, price, details,address):
     return response.choices[0].message['content']
 
 
+def classify_quote_quality(details, photo_count):
+    prompt = f"""
+    Given this window cleaning request: {details}. There are {photo_count} photos attached.
+    Classify this as one of:
+    - "High Quality" if it has specifics like number of panes, urgency, address, and photos.
+    - "Generic" if only partial info is present or unclear notes.
+    - "Poor" if it's vague, missing info, or spammy.
+    Reply with only one of: High Quality, Generic, Poor.
+    """
+    response = openai.ChatCompletion.create(
+        model="gpt-4o",
+        messages=[{"role": "user", "content": prompt}],
+        temperature=0.3
+    )
+    return response.choices[0].message['content'].strip()
+
+
+def classify_quote_quality(details, photo_count):
+    prompt = f"""
+    Given this window cleaning request: {details}. There are {photo_count} photos attached.
+    Classify this as one of:
+    - "Great" if it has specifics like number of panes, urgency, address, and photos.
+    - "Decent" if only partial info is present or unclear notes.
+    - "Poor" if it's vague, missing info, or spammy.
+    Reply with only one of: High Quality, Generic, Poor.
+    """
+    response = openai.ChatCompletion.create(
+        model="gpt-4o",
+        messages=[{"role": "user", "content": prompt}],
+        temperature=0.3
+    )
+    return response.choices[0].message['content'].strip()
+
 def polish_msg(quote,price,original_price,name):
  prompt = f"""
     Polish the following quote so that it is clear and structured in list form:
@@ -48,3 +81,5 @@ def polish_msg(quote,price,original_price,name):
         temperature=0.7
     )
  return response.choices[0].message['content']
+
+

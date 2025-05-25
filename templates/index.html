@@ -153,7 +153,7 @@
   <div class="progress mb-4">
     <div class="progress-bar" id="formProgress" style="width: 33%">Step 1 of 3</div>
   </div>
-  <form id="quoteForm" method="POST" enctype="multipart/form-data">
+  <form id="quoteForm" method="POST" enctype="multipart/form-data" action = "">
     <!-- Step 1 -->
     <div class="form-step active">
       <div class="mb-3"><label>Name</label><input type="text" name="name" class="form-control" required></div>
@@ -174,7 +174,7 @@
   <div class="upload-grid">
     <div class="upload-left">
       <div class="pulse-upload" onclick="document.getElementById('photosInput').click()">Upload</div>
-      <input type="file" name="photos" id="photosInput" multiple accept="image/*" class="d-none" onchange="previewPhotos(event)">
+<input type="file" name="photo" id="photosInput" multiple accept="image/*" class="d-none" onchange="previewPhotos(event)">
     </div>
     <div class="upload-right">
       <div class="thumb-container" id="thumbContainer"></div>
